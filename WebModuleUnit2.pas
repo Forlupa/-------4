@@ -1,0 +1,71 @@
+unit WebModuleUnit2;
+
+interface
+
+uses System.SysUtils, System.Classes, Web.HTTPApp, FireDAC.Comp.Client, FireDAC.Stan.Param,
+  FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf,
+  FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
+  FireDAC.Phys, FireDAC.Phys.MSSQL, FireDAC.Phys.MSSQLDef, FireDAC.VCLUI.Wait,
+  Data.DB, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt, FireDAC.Phys.ODBCBase,
+  FireDAC.Comp.DataSet;
+
+type
+  TWebModule2 = class(TWebModule)
+    FDConnection1: TFDConnection;
+    FDQuery1: TFDQuery;
+    FDPhysMSSQLDriverLink1: TFDPhysMSSQLDriverLink;
+    procedure WebModule2DefaultHandlerAction(Sender: TObject;
+      Request: TWebRequest; Response: TWebResponse; var Handled: Boolean);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  WebModuleClass: TComponentClass = TWebModule2;
+
+implementation
+
+{%CLASSGROUP 'Vcl.Controls.TControl'}
+
+{$R *.dfm}
+
+procedure TWebModule2.WebModule2DefaultHandlerAction(Sender: TObject;
+  Request: TWebRequest; Response: TWebResponse; var Handled: Boolean);
+var
+  Html: string;
+begin
+  // Собираем HTML-страницу по кусочкам, закрывая кавычки на каждой строке
+  Html := '<html><head><meta charset="UTF-8"><title>Учет сотрудников</title>';
+  Html := Html + '<style>body{font-family:Arial; margin:40px; background:#f4f7f6;}';
+  Html := Html + 'table{border-collapse:collapse; width:100%; background:#fff; box-shadow:0 2px 5px rgba(0,0,0,0.1);}';
+  Html := Html + 'th, td{padding:12px; text-align:left; border-bottom:1px solid #ddd;}';
+  Html := Html + 'th{background:#007bff; color:white;}</style></head><body>';
+  Html := Html + '<h2>Список сотрудников компании</h2>';
+  Html := Html + '<table><tr><th>ID</th><th>ФИО</th><th>Должность</th><th>Зарплата</th></tr>';
+
+  // Проверяем базу данных
+  FDQuery1.Active := True;
+  FDQuery1.First;
+
+  // Бежим по таблице сотрудников
+  while not FDQuery1.Eof do
+  begin
+    Html := Html + '<tr>';
+    Html := Html + '<td>' + FDQuery1.FieldByName('ID').AsString + '</td>';
+    Html := Html + '<td>' + FDQuery1.FieldByName('FullName').AsString + '</td>';
+    Html := Html + '<td>' + FDQuery1.FieldByName('Position').AsString + '</td>';
+    Html := Html + '<td>' + FDQuery1.FieldByName('Salary').AsString + ' руб.</td>';
+    Html := Html + '</tr>';
+    FDQuery1.Next;
+  end;
+
+  Html := Html + '</table></body></html>';
+
+  // Отправляем результат в браузер
+  Response.Content := Html;
+  Handled := True;
+end;
+
+end.

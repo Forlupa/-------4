@@ -1,0 +1,24 @@
+object WebModule2: TWebModule2
+  Actions = <
+    item
+      Default = True
+      Name = 'DefaultHandler'
+      PathInfo = '/'
+      OnAction = WebModule2DefaultHandlerAction
+    end>
+  Height = 230
+  Width = 415
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'DriverID=MSSQL'
+      'Server=.\SQLEXPRESS'
+      'Database=CompanyDB'
+      'OSAuthent=Yes'
+      'Encrypt=No'
+      'TrustServerCertificate=Yes'
+      'ODBCAdvanced=Encrypt=no;TrustServerCertificate=yes')
+    LoginPrompt = False
+    Left = 192
+    Top = 104
+  end
+end

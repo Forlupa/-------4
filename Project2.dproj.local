@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.369,C:\Users\eveng\OneDrive\Документы\Embarcadero\Studio\Projects\Project2.dproj=C:\Users\eveng\OneDrive\Рабочий стол\Задание 3\DelphiWebProject\Project2.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.404,=C:\Users\eveng\OneDrive\Документы\Embarcadero\Studio\Projects\FormUnit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.427,C:\Users\eveng\OneDrive\Документы\Embarcadero\Studio\Projects\FormUnit1.pas=C:\Users\eveng\OneDrive\Рабочий стол\Задание 3\DelphiWebProject\FormUnit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.628,C:\Users\eveng\OneDrive\Документы\Embarcadero\Studio\Projects\WebModuleUnit2.dfm=C:\Users\eveng\OneDrive\Рабочий стол\Задание 3\DelphiWebProject\WebModuleUnit2.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.176,=C:\Users\eveng\OneDrive\Документы\Embarcadero\Studio\Projects\WebModuleUnit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.628,C:\Users\eveng\OneDrive\Документы\Embarcadero\Studio\Projects\WebModuleUnit2.pas=C:\Users\eveng\OneDrive\Рабочий стол\Задание 3\DelphiWebProject\WebModuleUnit2.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.427,C:\Users\eveng\OneDrive\Документы\Embarcadero\Studio\Projects\FormUnit1.dfm=C:\Users\eveng\OneDrive\Рабочий стол\Задание 3\DelphiWebProject\FormUnit1.dfm</Transaction>
+  </Transactions>
+</BorlandProject>
